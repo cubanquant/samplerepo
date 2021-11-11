@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Hello World</title>
+</head>
+<body>
+<h1>Hello {{the_name}}</h1>
+<p>Welcome {{the_name}} to my page</p>
+
+<table border="2">
+    <tr><td>Numbers</td></tr>
+    {% for i in lst %}
+        <tr><td>{{i}}</td></tr>
+    {% endfor %}
+</table>
+
+</body>
+</html>
