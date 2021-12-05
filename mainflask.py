@@ -4,6 +4,8 @@ from flask import url_for, redirect
 from flask import request
 app = Flask(__name__)
 
+my_list = [[0, "A"], [1, "B"], [2, "C"], [3, "D"]]
+
 
 @app.route('/adder/<x>/<y>')
 def adder(x, y):
@@ -21,14 +23,17 @@ def hello_name(name):
 def hello_action():
     if request.method == "POST":
         name = request.form['name']
+        element = request.form['element']
+        print(element)
     else:
         name = request.args.get('name', '')
-    return render_template('helloname.html', the_name=name)
+        element = request.args.get('element', '')
+    return render_template('helloname.html', the_name=name, element=element, lst=my_list)
 
 
 @app.route('/helloform')
 def hello_form():
-    return render_template('helloform.html')
+    return render_template('helloform.html', my_list=my_list)
 
 
 @app.route('/helloworld')
